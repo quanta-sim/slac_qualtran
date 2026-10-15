@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slac-qualtran-block-encoding"
+version = "0.1.0"
+description = "Explicit SLAC LCU circuits, multiscale Shannon transforms, and wavelet preconditioning in Qualtran"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "qualtran==0.7.0",
+    "cirq-core==1.7.0",
+    "numpy==2.4.6",
+    "pandas==3.0.5",
+    "matplotlib==3.11.1",
+    "attrs==26.1.0",
+    "sympy==1.14.0",
+]
+
+[project.optional-dependencies]
+notebook = ["jupyterlab==4.6.3", "nbformat==5.11.0", "nbclient==0.11.0"]
+test = ["pytest>=8,<10"]
+
+[tool.setuptools.packages.find]
+include = ["slac_qualtran*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
